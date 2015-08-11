@@ -5,7 +5,7 @@ describe(Task) do
   before() do
     Task.clear()
   end
-  
+
   describe('#description') do
     it('provides description of a task') do
       test_task = Task.new("get a haircut")
