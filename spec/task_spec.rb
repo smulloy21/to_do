@@ -2,6 +2,10 @@ require('rspec')
 require('task')
 
 describe(Task) do
+  before() do
+    Task.clear()
+  end
+  
   describe('#description') do
     it('provides description of a task') do
       test_task = Task.new("get a haircut")
@@ -20,6 +24,14 @@ describe(Task) do
       test_task = Task.new("mow the lawn")
       test_task.save()
       expect(Task.all()).to(eq([test_task]))
+    end
+  end
+
+  describe(".clear") do
+    it('empty out all of the saved tasks') do
+      Task.new("mow the lawn").save()
+      Task.clear()
+      expect(Task.all()).to(eq([]))
     end
   end
 end
