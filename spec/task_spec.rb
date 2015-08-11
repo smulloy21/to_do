@@ -14,4 +14,12 @@ describe(Task) do
       expect(Task.all()).to(eq([]))
     end
   end
+
+  describe("#save") do
+    it('saves a new task to all tasks') do
+      test_task = Task.new("mow the lawn")
+      test_task.save()
+      expect(Task.all()).to(eq([test_task]))
+    end
+  end
 end
